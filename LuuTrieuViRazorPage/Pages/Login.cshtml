@@ -1,0 +1,34 @@
+﻿@page
+@model LuuTrieuViRazorPage.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <h1 class="mt-5 mb-3 h3">Login</h1>
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" asp-for="LoginRequest.Email"/>
+                </div>
+                <div class="mb-2">
+                    <span asp-validation-for="LoginRequest.Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" asp-for="LoginRequest.Password"/>
+                </div>
+                <div class="mb-2">
+                    <span asp-validation-for="LoginRequest.Password" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-dark text-light">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

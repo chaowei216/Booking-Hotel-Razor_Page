@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = LuuTrieuViRazorPage
+build_property.RootNamespace = LuuTrieuViRazorPage
+build_property.ProjectDir = D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Booking/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Room/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Room/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Major7/PRN221/Ass2/LuuTrieuVi_NET1701_A02/LuuTrieuViRazorPage/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hiqmp0fl80
