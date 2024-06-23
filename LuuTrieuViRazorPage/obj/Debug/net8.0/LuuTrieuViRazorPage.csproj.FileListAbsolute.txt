@@ -144,3 +144,5 @@ D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\bin\Debug\net8.
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\obj\Debug\net8.0\LuuTrieuViRazorPage.sourcelink.json
+D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\LuuTrieuViRazorPage\bin\Debug\net8.0\libman.json

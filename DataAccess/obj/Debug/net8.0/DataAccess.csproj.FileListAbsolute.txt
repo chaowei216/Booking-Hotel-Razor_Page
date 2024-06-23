@@ -13,3 +13,4 @@ D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\DataAccess\obj\Debug\net8.0\DataAcc
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
+D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json

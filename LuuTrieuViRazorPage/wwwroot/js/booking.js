@@ -1,10 +1,33 @@
 ﻿var totalPrice = +0;
 var dataList = [];
+var startDate = $("#startDate");
+var endDate = $("#endDate");
+var totalPriceItem = $("#total-price");
 
 $(document).ready(function () {
-    var startDate = $("#startDate");
-    var endDate = $("#endDate");
-    var totalPriceItem = $("#total-price");
+    var connection = new signalR.HubConnectionBuilder().withUrl("/bookingHub").build();
+
+    connection.on("RenderRoomList", function (sTime, eTime) {
+        let currentSTime = $('#startDate').val();
+        let currentETime = $('#endDate').val();
+        let hubSTime = sTime.slice(0, 10);
+        let hubETime = eTime.slice(0, 10);
+
+        if ((hubSTime <= currentSTime && hubETime >= currentSTime)
+            || (hubSTime >= currentSTime && hubETime <= currentETime)
+            || (hubSTime <= currentETime && hubETime >= currentETime)) {
+            updateRoomList(currentSTime, currentETime);
+            updateDetail(dataList, totalPrice)
+        }
+    });
+
+    connection.start().then(function () {
+        console.log("start");
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+
 
     totalPriceItem.text("$" + totalPrice);
 
@@ -27,27 +50,7 @@ $(document).ready(function () {
     const handleChangeDate = () => {
         var sDateVal = startDate.val();
         var eDateVal = endDate.val();
-
-        $.ajax({
-            method: 'GET',
-            url: "/Room/?handler=UpdateRoomList",
-            data: {
-                startDate: sDateVal.toLocaleString(),
-                endDate: eDateVal.toLocaleString()
-            },
-            contentType: 'application/json',
-            success: function (response) {
-                if (response.isSuccess && response.data) {
-                    updateUI(response.data)
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log("AJAX Error:");
-                console.log("Status:", status);
-                console.log("Error:", error);
-                console.log("Response Text:", xhr.responseText);
-            }
-        })
+        updateRoomList(sDateVal, eDateVal);
     }
 
     const checkDateRange = () => {
@@ -63,10 +66,13 @@ $(document).ready(function () {
     const handleClickConfirm = () => {
         var token = $('input[name="__RequestVerificationToken"]').val();
         var id = $('#customerId').val();
+
         var bookingData = {
             details: dataList,
             price: totalPrice,
-            customerId: id
+            customerId: id,
+            startTime: $('#startDate').val(),
+            endTime: $('#endDate').val()
         }
 
         // call ajax to add booking
@@ -81,13 +87,12 @@ $(document).ready(function () {
             data: JSON.stringify(bookingData),
             success: function (response) {
                 if (response.isSuccess && response.data) {
-                    updateUI(response.data);
-                    console.log(response.data);
-                    $('#startDate').val(new Date().toISOString().slice(0, 10));
-                    $('#endDate').val(new Date().toISOString().slice(0, 10));
                     totalPrice = 0;
                     dataList = [];
-                    updateDetail(dataList, totalPrice)
+                    connection.invoke("BookingRoom", $('#startDate').val(), $('#endDate').val()).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+
                     $("#confirm").prop('disabled', true);
                 }
             },
@@ -99,19 +104,20 @@ $(document).ready(function () {
             }
         });
     }
+});
 
-    const updateUI = (rooms) => {
-        var container = $("#container-room");
-        container.empty();
-        if (rooms != null && rooms.length == 0) {
-            var divItem = $('<h4>')
-            divItem.addClass("text-center");
-            divItem.text("No item available");
-            container.append(divItem);
-        } else {
-            rooms.forEach((item) => {
-                var jsonItem = JSON.parse(item);
-                var newItem = $(`
+const updateUI = (rooms) => {
+    var container = $("#container-room");
+    container.empty();
+    if (rooms != null && rooms.length == 0) {
+        var divItem = $('<h4>')
+        divItem.addClass("text-center");
+        divItem.text("No item available");
+        container.append(divItem);
+    } else {
+        rooms.forEach((item) => {
+            var jsonItem = JSON.parse(item);
+            var newItem = $(`
                                  <div class="col">
                                     <div class="card h-100">
                                         <div class="card-body d-flex flex-column justify-content-between">
@@ -131,13 +137,12 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             `);
-                container.append(newItem);
-            });
+            container.append(newItem);
+        });
 
-            updateEventClickAdd(startDate, endDate);
-        }
+        updateEventClickAdd(startDate, endDate);
     }
-});
+}
 
 
 const updateEventClickAdd = (startDate, endDate) => {
@@ -193,6 +198,29 @@ const updateEventClickDelete = () => {
             totalPrice -= existingItem.price;
 
             updateDetail(dataList, totalPrice);
+        }
+    })
+}
+
+const updateRoomList = (startTime, endTime) => {
+    $.ajax({
+        method: 'GET',
+        url: "/Room/?handler=UpdateRoomList",
+        data: {
+            startDate: startTime,
+            endDate: endTime
+        },
+        contentType: 'application/json',
+        success: function (response) {
+            if (response.isSuccess && response.data) {
+                updateUI(response.data)
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX Error:");
+            console.log("Status:", status);
+            console.log("Error:", error);
+            console.log("Response Text:", xhr.responseText);
         }
     })
 }

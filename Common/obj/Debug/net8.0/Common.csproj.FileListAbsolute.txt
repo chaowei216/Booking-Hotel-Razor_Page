@@ -13,3 +13,4 @@ D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\Common\obj\Debug\net8.0\Common.dll
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\Common\obj\Debug\net8.0\refint\Common.dll
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\Common\obj\Debug\net8.0\Common.pdb
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\Common\obj\Debug\net8.0\ref\Common.dll
+D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\Common\obj\Debug\net8.0\Common.sourcelink.json

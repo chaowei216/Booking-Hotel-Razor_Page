@@ -19,3 +19,4 @@ D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\BusinessLogic\obj\Debug\net8.0\refi
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\BusinessLogic\obj\Debug\net8.0\BusinessLogic.genruntimeconfig.cache
 D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+D:\Major7\PRN221\Ass2\LuuTrieuVi_NET1701_A02\BusinessLogic\obj\Debug\net8.0\BusinessLogic.sourcelink.json

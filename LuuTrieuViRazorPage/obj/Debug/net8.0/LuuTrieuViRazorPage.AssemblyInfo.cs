@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LuuTrieuViRazorPage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bfa388f7e2c1cc3eab365bd51f9fdd49ca1ea00")]
 [assembly: System.Reflection.AssemblyProductAttribute("LuuTrieuViRazorPage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LuuTrieuViRazorPage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

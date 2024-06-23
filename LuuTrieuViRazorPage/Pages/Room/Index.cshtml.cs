@@ -70,7 +70,8 @@ namespace LuuTrieuViRazorPage.Pages.Room
 
             return new JsonResult(new
             {
-                isSuccess = false
+                isSuccess = true,
+                data = new List<string>()
             });
         }
 
@@ -86,7 +87,7 @@ namespace LuuTrieuViRazorPage.Pages.Room
 
             await _bookingService.AddNewBooking(newBooking, data.Details);
 
-            Rooms = await _roomService.GetAvailableRoomsByTime(DateTime.Now, DateTime.Now);
+            Rooms = await _roomService.GetAvailableRoomsByTime(data.StartTime, data.EndTime);
 
             if (Rooms != null && Rooms.Any())
             {

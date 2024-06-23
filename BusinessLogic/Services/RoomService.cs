@@ -8,12 +8,12 @@ namespace BusinessLogic.Services
     public class RoomService : IRoomService
     {
         private readonly IRoomRepository _roomRepository;
-        private readonly IBookingService _bookingService;
+        private readonly IBookingReservationRepository _bookingRepository;
 
-        public RoomService(IRoomRepository roomRepository, IBookingService bookingService)
+        public RoomService(IRoomRepository roomRepository, IBookingReservationRepository bookingRepository)
         {
             _roomRepository = roomRepository;
-            _bookingService = bookingService;
+            _bookingRepository = bookingRepository;
         }
 
         public async Task<IEnumerable<RoomInformation>> GetAllRooms()
@@ -28,9 +28,9 @@ namespace BusinessLogic.Services
             DateOnly endDateOnly = new DateOnly(endDate.Year, endDate.Month, endDate.Day);
 
             var currentRooms = await _roomRepository.GetAllRooms();
-            var allBookingDetails = await _bookingService.GetAllBookingDetails();
+            var allBookingDetails = await _bookingRepository.GetAllBookingDetails();
 
-            var bookingInDate = allBookingDetails.Where(p => (p.StartDate <= startDateOnly && p.EndDate >= startDateOnly) 
+            var bookingInDate = allBookingDetails.Where(p => (p.StartDate <= startDateOnly && p.EndDate >= startDateOnly) || (p.StartDate <= startDateOnly && p.EndDate >= endDateOnly)
                                                         || (p.StartDate <= endDateOnly && p.EndDate >= endDateOnly)).Select(p => p.RoomId).Distinct();
 
             var availableRooms = currentRooms.Where(p => !bookingInDate.Contains(p.RoomId)).ToList();
@@ -41,6 +41,11 @@ namespace BusinessLogic.Services
         public async Task<RoomInformation?> GetRoom(int roomId)
         {
             return await _roomRepository.GetRoomById(roomId);
+        }
+
+        public RoomInformation UpdateRoom(RoomInformation roomInformation)
+        {
+            return _roomRepository.UpdateRoom(roomInformation);
         }
     }
 }

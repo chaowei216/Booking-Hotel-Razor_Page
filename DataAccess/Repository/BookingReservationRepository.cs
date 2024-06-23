@@ -43,6 +43,14 @@ namespace DataAccess.Repository
             return bookingDetails.Where(b => b.RoomId == id).ToList();
         }
 
+        public async Task<BookingDetail?> GetBookingOfRoomByCurrentDate(int roomId)
+        {
+            var allBookingDetails = await BookingDetailDAO.Instance.GetAll();
+            return allBookingDetails.FirstOrDefault(p => p.RoomId == roomId && 
+                                                    p.StartDate <= DateOnly.FromDateTime(DateTime.Now) && 
+                                                    p.EndDate >= DateOnly.FromDateTime(DateTime.Now));
+        }
+
         public async Task<IEnumerable<BookingReservation>> GetBookingsByCustomerId(int customerId)
         {
             var bookings = await BookingReservationDAO.Instance.GetAll();

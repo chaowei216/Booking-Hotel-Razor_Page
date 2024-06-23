@@ -3,6 +3,7 @@ using BusinessLogic.Services;
 using BusinessObject.Models;
 using DataAccess.Repository;
 using DataAccess.Repository.Interface;
+using LuuTrieuViRazorPage.Hubs;
 using LuuTrieuViRazorPage.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Diagnostics;
@@ -12,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSignalR();
+
 // auto mapper
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
@@ -38,6 +41,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddHostedService<RoomStatusUpdateWorker>();
 
 var app = builder.Build();
 
@@ -61,5 +65,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHub<BookingHub>("/bookingHub");
 
 app.Run();

@@ -12,5 +12,6 @@ namespace DataAccess.Repository.Interface
         Task<IEnumerable<BookingDetail>> GetBookingDetailsByRoomId(int id);
         Task<BookingDetail> AddNewBookingDetail(BookingDetail bookingDetail);
         Task<IEnumerable<BookingReservation>> GetBookingsByCustomerId(int customerId);
+        Task<BookingDetail?> GetBookingOfRoomByCurrentDate(int roomId);
     }
 }
