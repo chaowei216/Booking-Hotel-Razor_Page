@@ -1,0 +1,50 @@
+﻿@page
+@model LuuTrieuViRazorPage.Pages.Admin.Room.IndexModel
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<div class="container">
+    <h1 class="text-center mb-3">Room</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Room Number</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Rooms.Any())
+            {
+                @foreach (var item in Model.Rooms)
+                {
+                    <tr>
+                        <td>@item.RoomId</td>
+                        <td>@item.RoomNumber</td>
+                        <td>@item.RoomDetailDescription</td>
+                        <td id="status-@item.RoomId">
+                            @if (item.RoomStatus == 1)
+                            {
+                                <span class="badge bg-success">Available</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Occupied</span>
+                            }
+                        </td>
+                        <td><a asp-page="/Admin/Room/Detail" asp-route-id="@item.RoomId" class="btn btn-info">View Detail</a></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="text-center">
+                    <td colspan="5"><h5>You have no room!</h5></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

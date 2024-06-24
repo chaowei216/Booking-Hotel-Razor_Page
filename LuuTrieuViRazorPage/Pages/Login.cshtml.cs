@@ -41,7 +41,8 @@ namespace LuuTrieuViRazorPage.Pages
                 var claims = new List<Claim>
                 {
                     new(ClaimTypes.Name, user.CustomerFullName!),
-                    new(ClaimTypes.Email, user.EmailAddress)
+                    new(ClaimTypes.Email, user.EmailAddress),
+                    new(ClaimTypes.Role, user.CustomerFullName == "ADMIN" ? "Admin" : "Customer")
                 };
 
                 // claims identity

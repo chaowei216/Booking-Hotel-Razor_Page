@@ -4,6 +4,8 @@
     {
         NotFound = 404,
         BadRequest = 400,
-        InternalServer = 500
+        InternalServer = 500,
+        Unauthorized = 401,
+        Forbidden = 403
     }
 }

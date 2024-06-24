@@ -8,5 +8,10 @@ namespace LuuTrieuViRazorPage.Hubs
         {
             await Clients.All.SendAsync("RenderRoomList", startTime, endTime);
         }
+
+        public async Task UpdateRoomStatus(int roomId, byte isAvailable)
+        {
+            await Clients.All.SendAsync("RenderRoomStatus", roomId, isAvailable);
+        }
     }
 }

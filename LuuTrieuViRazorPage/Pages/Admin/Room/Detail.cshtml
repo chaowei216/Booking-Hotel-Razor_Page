@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model LuuTrieuViRazorPage.Pages.Room.DetailModel
+@{
+    ViewData["Title"] = "Room Detail";
+}
+<div class="container my-5">
+    <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-6">
+            <h1 class="mb-3 text-center">@Model.Room!.RoomNumber</h1>
+            <div class="d-flex justify-content-between">
+                <span class="text-secondary"><span class="fw-bold">Room type:</span> @Model.Room.RoomType.RoomTypeName</span>
+                <span class="text-secondary"><span class="fw-bold">Capacity:</span> @Model.Room.RoomMaxCapacity</span>
+            </div>
+
+            <div class="mb-3">
+                <span class="text-secondary"><span class="fw-bold">Price:</span> $@Math.Truncate((decimal)Model.Room.RoomPricePerDay!) / day</span>
+            </div>
+
+            <div class="mb-3">
+                <span class="text-secondary"><span class="fw-bold">
+                        Status:</span> @if(Model.Room.RoomStatus!.Value == 1)
+                    {
+                        <span>Available</span>
+                    } else
+                    {
+                        <span>Not Available</span>
+                    }
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <span class="fw-bold">Description:</span> @Model.Room.RoomDetailDescription
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a asp-page="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>

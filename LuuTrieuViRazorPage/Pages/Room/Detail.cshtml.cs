@@ -1,11 +1,13 @@
 using BusinessLogic.Interfaces;
 using BusinessObject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace LuuTrieuViRazorPage.Pages.Room
 {
+    [Authorize]
     public class DetailModel : PageModel
     {
         private readonly IRoomService _roomService;
@@ -17,16 +19,9 @@ namespace LuuTrieuViRazorPage.Pages.Room
 
         public RoomInformation? Room { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task OnGetAsync(int? id)
         {
-            if (!User.Identity!.IsAuthenticated)
-            {
-                return RedirectToPage("/Login");
-            }
-
             Room = await _roomService.GetRoom((int)id!);
-
-            return Page();
         }
     }
 }

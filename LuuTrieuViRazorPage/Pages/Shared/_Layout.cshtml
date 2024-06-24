@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,12 +23,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Room/Index">Room</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Booking/Index">Booking</a>
-                        </li>
+                        @if (User.Identity!.IsAuthenticated)
+                        {
+                            var userRole = User.FindFirstValue(ClaimTypes.Role);
+                            if (userRole == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Admin/Room/Index">Room</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Admin/Booking/Index">Booking</a>
+                                </li>
+                            } else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Room/Index">Room</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Booking/Index">Booking</a>
+                                </li>
+                            }
+                        }
                     </ul>
                     <div class="d-flex align-items-center">
                         @if(User.Identity!.IsAuthenticated)
@@ -62,6 +78,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/booking.js" asp-append-version="true"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

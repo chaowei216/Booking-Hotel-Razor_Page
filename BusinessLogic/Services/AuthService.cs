@@ -10,28 +10,34 @@ namespace BusinessLogic.Services
     {
         private readonly ICustomerService _customerService;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _config;
 
-        public AuthService(ICustomerService customerService, IMapper mapper)
+        public AuthService(ICustomerService customerService, IMapper mapper, IConfiguration config)
         {
             _customerService = customerService;
             _mapper = mapper;
+            _config = config;
         }
 
         public async Task<Customer?> CheckLogin(string email, string password)
         {
-            var customer = await _customerService.GetCustomerByEmail(email);
-
-            if (customer != null)
+            if (CheckAdminAccount(email, password) != null)
             {
-                if (customer.Password == password)
+                return CheckAdminAccount(email, password);
+            } else
+            {
+                var customer = await _customerService.GetCustomerByEmail(email);
+
+                if (customer != null)
                 {
-                    return customer;
+                    if (customer.Password == password)
+                    {
+                        return customer;
+                    }
                 }
 
                 return null;
             }
-
-            return null;
         }
 
         public async Task<Customer?> Register(RegisterRequestDTO request)
@@ -56,5 +62,26 @@ namespace BusinessLogic.Services
 
             return null;
         }
+
+        private Customer? CheckAdminAccount(string email, string password)
+        {
+            var adminEmail = _config["AdminAccount:Email"];
+            var adminPass = _config["AdminAccount:Password"];
+
+            if (adminEmail != null || adminPass != null)
+            {
+                if (adminEmail == email && adminPass == password)
+                {
+                    return new Customer()
+                    {
+                        EmailAddress = email,
+                        Password = password,
+                        CustomerFullName = "ADMIN",
+                    };
+                }
+            }
+
+            return null;
+        } 
     }
 }

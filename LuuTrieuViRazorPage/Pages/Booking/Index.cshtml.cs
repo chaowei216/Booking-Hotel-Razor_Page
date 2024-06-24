@@ -1,11 +1,13 @@
 using BusinessLogic.Interfaces;
 using BusinessObject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
 
 namespace LuuTrieuViRazorPage.Pages.Booking
 {
+    [Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
         private readonly ICustomerService _customerService;
@@ -21,11 +23,6 @@ namespace LuuTrieuViRazorPage.Pages.Booking
 
         public async Task<IActionResult> OnGet()
         {
-            if (!User.Identity!.IsAuthenticated)
-            {
-                return RedirectToPage("/Login");
-            }
-
             var customer = await _customerService.GetCustomerByEmail(User.FindFirstValue(ClaimTypes.Email)!);
 
             if (customer != null)

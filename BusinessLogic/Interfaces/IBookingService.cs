@@ -6,6 +6,7 @@ namespace BusinessLogic.Interfaces
 {
     public interface IBookingService
     {
+        Task<IEnumerable<BookingReservation>> GetAllBooking();
         Task<IEnumerable<BookingReservation>> GetBookingsOfCustomer(int customerId);
         Task<IEnumerable<BookingDetail>> GetBookingDetailsOfBooking(int bookingId);
         Task<IEnumerable<BookingDetail>> GetAllBookingDetails();

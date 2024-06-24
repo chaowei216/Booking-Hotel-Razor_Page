@@ -1,4 +1,5 @@
 ﻿using DataAccess.Repository.Interface;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,7 @@ namespace BusinessLogic.Services
         private readonly ILogger<RoomStatusUpdateWorker> _logger;
         private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly IConfiguration _config;
+        private readonly HubConnection _hubConnection;
 
         public RoomStatusUpdateWorker(
             ILogger<RoomStatusUpdateWorker> logger,
@@ -20,10 +22,22 @@ namespace BusinessLogic.Services
             _logger = logger;
             _serviceScopeFactory = serviceScopeFactory;
             _config = config;
+            _hubConnection = new HubConnectionBuilder()
+                .WithUrl(_config["BookingHub"]!)
+                .Build();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            try
+            {
+                await _hubConnection.StartAsync(stoppingToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while connecting to SignalR hub.");
+            }
+
             while (!stoppingToken.IsCancellationRequested)
             {
                 try
@@ -53,14 +67,16 @@ namespace BusinessLogic.Services
                     var currentBooking = await bookingRepository.GetBookingOfRoomByCurrentDate(room.RoomId);
                     if (currentBooking != null)
                     {
-                        room.RoomStatus = 1;
+                        room.RoomStatus = 0;
                     }
                     else
                     {
-                        room.RoomStatus = 0;
+                        room.RoomStatus = 1;
                     }
 
                     roomRepository.UpdateRoom(room);
+
+                    await _hubConnection.InvokeAsync("UpdateRoomStatus", room.RoomId, room.RoomStatus);
                 }
             }
 

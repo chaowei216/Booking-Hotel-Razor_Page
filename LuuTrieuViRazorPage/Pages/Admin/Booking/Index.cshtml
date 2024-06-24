@@ -1,0 +1,41 @@
+﻿@page
+@model LuuTrieuViRazorPage.Pages.Admin.Booking.IndexModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<div class="container">
+    <h1 class="text-center mb-3">Booking</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Booking Date</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Bookings.Any())
+            {
+                @foreach (var item in Model.Bookings)
+                {
+                    <tr>
+                        <td>@item.BookingReservationId</td>
+                        <td>@item.BookingDate</td>
+                        <td>$@Math.Truncate((decimal)@item.TotalPrice!)</td>
+                        <td>@item.BookingStatus</td>
+                        <td><a asp-page="/Admin/Booking/Detail" asp-route-id="@item.BookingReservationId" class="btn btn-info">View Detail</a></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="text-center">
+                    <td colspan="5"><h5>You have no booking!</h5></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

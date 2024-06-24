@@ -7,9 +7,11 @@ using Newtonsoft.Json;
 using BusinessLogic.Services;
 using Common.DTO;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LuuTrieuViRazorPage.Pages.Room
 {
+    [Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
         private readonly IRoomService _roomService;
@@ -26,17 +28,10 @@ namespace LuuTrieuViRazorPage.Pages.Room
         public IEnumerable<RoomInformation> Rooms { get; set; } = new List<RoomInformation>();
         public Customer? Customer { get; set; }
 
-        public async Task<IActionResult> OnGet()
+        public async Task OnGet()
         {
-            if (!User.Identity!.IsAuthenticated)
-            {
-                return RedirectToPage("/Login");
-            }
-
             Rooms = await _roomService.GetAvailableRoomsByTime(DateTime.Now, DateTime.Now);
             Customer = await _customerService.GetCustomerByEmail(User.FindFirstValue(ClaimTypes.Email)!);
-
-            return Page();
         }
 
         public async Task<IActionResult> OnGetUpdateRoomList(DateTime startDate, DateTime endDate)

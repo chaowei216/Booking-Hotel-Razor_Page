@@ -1,0 +1,42 @@
+﻿@page "{id:int}"
+@model LuuTrieuViRazorPage.Pages.Admin.Booking.DetailModel
+@{
+    ViewData["Title"] = "Booking Detail";
+}
+
+<div class="container">
+    <h1 class="text-center mb-3">Detail</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Room</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actual Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BookingDetails.Any())
+            {
+                @foreach (var item in Model.BookingDetails)
+                {
+                    <tr>
+                        <td>@item.Room.RoomNumber</td>
+                        <td>@item.StartDate</td>
+                        <td>@item.EndDate</td>
+                        <td>$@Math.Truncate((decimal)@item.ActualPrice!)</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="text-center">
+                    <td colspan="4"><h5 class="text-danger">Invalid Booking!!</h5></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a asp-page="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>

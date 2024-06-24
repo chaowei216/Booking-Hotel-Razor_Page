@@ -22,6 +22,14 @@ namespace LuuTrieuViRazorPage.Middleware
                 {
                     HandleNotFound(context);
                 }
+                else if (context.Response.StatusCode == 401)
+                {
+                    HandleUnauthorized(context);
+                }
+                else if (context.Response.StatusCode == 403)
+                {
+                    HandleForbidden(context);
+                }
             }
             catch (Exception ex)
             {
@@ -41,6 +49,16 @@ namespace LuuTrieuViRazorPage.Middleware
         private static void HandleNotFound(HttpContext context)
         {
             context.Response.Redirect($"/error?errMessage={ErrorMessage.NotFound}&statusCode={(int)StatusCode.NotFound}");
+        }
+
+        private static void HandleUnauthorized(HttpContext context)
+        {
+            context.Response.Redirect($"/error?errMessage={ErrorMessage.Unauthorized}&statusCode={(int)StatusCode.Unauthorized}");
+        }
+
+        private static void HandleForbidden(HttpContext context)
+        {
+            context.Response.Redirect($"/error?errMessage={ErrorMessage.Forbidden}&statusCode={(int)StatusCode.Forbidden}");
         }
     }
 }

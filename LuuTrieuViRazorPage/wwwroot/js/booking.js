@@ -21,6 +21,17 @@ $(document).ready(function () {
         }
     });
 
+    connection.on("RenderRoomStatus", function (roomId, isAvailable) {
+        console.log("here");
+        var statusContainer = $(`#status-${roomId}`);
+
+        if (isAvailable) {
+            statusContainer.html("<span class='badge bg-success'>Available</span>")
+        } else {
+            statusContainer.html("<span class='badge bg-danger'>Occupied</span>")
+        }
+    });
+
     connection.start().then(function () {
         console.log("start");
     }).catch(function (err) {

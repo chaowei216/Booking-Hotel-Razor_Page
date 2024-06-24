@@ -48,13 +48,18 @@ namespace BusinessLogic.Services
                         var room = await _roomService.GetRoom(item.Id);
                         if (room != null)
                         {
-                            room.RoomStatus = 1;
+                            room.RoomStatus = 0;
                             _roomService.UpdateRoom(room);
                         }
                     }
                 }
 
             }
+        }
+
+        public async Task<IEnumerable<BookingReservation>> GetAllBooking()
+        {
+            return await _reservationRepository.GetAllBookings();
         }
 
         public async Task<IEnumerable<BookingDetail>> GetAllBookingDetails()
