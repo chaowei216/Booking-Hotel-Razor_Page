@@ -129,24 +129,19 @@ const updateUI = (rooms) => {
         rooms.forEach((item) => {
             var jsonItem = JSON.parse(item);
             var newItem = $(`
-                                 <div class="col">
-                                    <div class="card h-100">
-                                        <div class="card-body d-flex flex-column justify-content-between">
-                                            <div class="mb-3">
-                                                <h5 class="card-title text-center" id="room-number-${jsonItem.id}">${jsonItem.number}</h5>
-                                                <p class="card-text">${jsonItem.description}</p>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-end">
-                                                <p class="card-text mb-0"><span class="fw-bold">Price:</span> $<span id="room-price-${jsonItem.id}">${Math.trunc(jsonItem.price)} </span>/ day</p>
-                                                <div>
-                                                    <button id="${jsonItem.id}" class="btn btn-outline-dark me-2 add">Book</button>
+                            <div class="card mx-2" style="width: 18rem;">
+                    <img class="card-img-top" src="https://tse2.mm.bing.net/th?id=OIP.UecmWknyfqWzk18Gj8Z8xgHaE8&pid=Api&P=0&h=180" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" id="room-number-${jsonItem.id}">${jsonItem.number}</h5>
+                        <p class="card-text">${jsonItem.description}</p>
+                        <p class="card-text mb-0"><span class="fw-bold">Price:</span> $<span id="room-price-${jsonItem.id}">${Math.trunc(jsonItem.price)} </span>/ day</p>
+                        <div class="mt-2">
+                            <button id="${jsonItem.id}" class="btn btn-primary me-2 add">Book</button>
 
-                                                    <a href="/Room/Detail/${jsonItem.id}"  class="btn btn-outline-secondary">View Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <a href="/Room/Detail/${jsonItem.id}" asp-route-id="@room.RoomId" class="btn btn-info">View Detail</a>
+                        </div>
+                    </div>
+                </div>
                             `);
             container.append(newItem);
         });
@@ -251,7 +246,9 @@ const updateDetail = (list, price) => {
                             <div class="booking-details rounded border p-3 overflow-hidden">
                               <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                  <span class="fw-bold">Room Number:</span> ${item.number} - <span class="fw-bold">Start Date:</span> ${item.sDate} <span class="fw-bold">End Date:</span> ${item.eDate}
+                                  <p><span class="fw-bold">Room Number:</span> ${item.number}</p>
+                                  <p><span class="fw-bold">From:</span> ${item.sDate}</p>
+                                  <p><span class="fw-bold">To:</span> ${item.eDate}</p>
                                 </div>
                                 <button id="${item.id}" class="btn btn-danger btn-sm delete">Delete</button>
                               </div>

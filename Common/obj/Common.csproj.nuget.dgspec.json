@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\Common\\Common.csproj": {}
+    "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\Common\\Common.csproj": {}
   },
   "projects": {
-    "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\obj\\",
+        "outputPath": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\Common\\Common.csproj": {
+    "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\Common\\Common.csproj",
+        "projectUniqueName": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\Common\\Common.csproj",
+        "projectPath": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\Common\\obj\\",
+        "outputPath": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,8 +113,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Major7\\PRN221\\Ass2\\LuuTrieuVi_NET1701_A02\\BusinessObject\\BusinessObject.csproj"
+              "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\Major7\\PRN221\\Ass2\\Booking-Hotel-Razor_Page\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }

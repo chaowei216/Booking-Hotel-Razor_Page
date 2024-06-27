@@ -3,37 +3,41 @@
 @{
     ViewData["Title"] = "Room Detail";
 }
-<div class="container my-5">
-    <div class="row justify-content-center mb-3">
-        <div class="col-12 col-lg-6">
-            <h1 class="mb-3 text-center">@Model.Room!.RoomNumber</h1>
-            <div class="d-flex justify-content-between">
-                <span class="text-secondary"><span class="fw-bold">Room type:</span> @Model.Room.RoomType.RoomTypeName</span>
-                <span class="text-secondary"><span class="fw-bold">Capacity:</span> @Model.Room.RoomMaxCapacity</span>
-            </div>
-
-            <div class="mb-3">
-                <span class="text-secondary"><span class="fw-bold">Price:</span> $@Math.Truncate((decimal)Model.Room.RoomPricePerDay!) / day</span>
-            </div>
-
-            <div class="mb-3">
-                <span class="text-secondary"><span class="fw-bold">
-                        Status:</span> @if(Model.Room.RoomStatus!.Value == 1)
+<div class="container py-5">
+    <h1 class="text-center">Room Detail</h1>
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="https://i.pinimg.com/originals/f6/09/a8/f609a8eb335502b9d18ff517cb7368bd.jpg"
+                 class="img-fluid"
+                 alt="Product Image" />
+        </div>
+        <div class="col-lg-8">
+            <h2 class="fw-bold">@Model.Room!.RoomNumber</h2>
+            <div class="mb-1">
+                <span class="text-secondary">
+                    <span class="fw-bold">
+                        Status:
+                    </span>
+                    @if (@Model.Room.RoomStatus == 1)
                     {
-                        <span>Available</span>
-                    } else
+                        <span class="badge bg-success">Available</span>
+                    }
+                    else
                     {
-                        <span>Not Available</span>
+                        <span class="badge bg-danger">Occupied</span>
                     }
                 </span>
             </div>
-
-            <div class="mb-3">
+            <p class="text-muted"><span class="text-secondary"><span class="fw-bold">Room type:</span> @Model.Room.RoomType.RoomTypeName</span></p>
+            <span class="text-secondary"><span class="fw-bold">Capacity:</span> @Model.Room.RoomMaxCapacity</span>
+            <h4 class="my-2"><span class="fw-bold">Price:</span> $@Math.Truncate((decimal)Model.Room.RoomPricePerDay!) / day</h4>
+            <p class="mb-4">
                 <span class="fw-bold">Description:</span> @Model.Room.RoomDetailDescription
+            </p>
+
+            <div>
+                <a asp-page="Index" class="btn btn-outline-dark">Back to List</a>
             </div>
         </div>
-    </div>
-    <div class="text-center">
-        <a asp-page="Index" class="btn btn-outline-dark">Back to List</a>
     </div>
 </div>

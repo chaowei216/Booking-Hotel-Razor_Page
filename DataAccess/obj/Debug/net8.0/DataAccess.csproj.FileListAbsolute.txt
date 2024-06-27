@@ -1,0 +1,16 @@
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\bin\Debug\net8.0\DataAccess.deps.json
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\bin\Debug\net8.0\DataAccess.dll
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\bin\Debug\net8.0\DataAccess.pdb
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\bin\Debug\net8.0\BusinessObject.dll
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\bin\Debug\net8.0\BusinessObject.pdb
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.csproj.AssemblyReference.cache
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfoInputs.cache
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfo.cs
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.csproj.CopyComplete
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.dll
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\DataAccess.pdb
+D:\Major7\PRN221\Ass2\Booking-Hotel-Razor_Page\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
